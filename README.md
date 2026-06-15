@@ -31,3 +31,4 @@ Para resolver las aserciones anteriores y lograr el estado GREEN (todas las prue
 
 
 #FASE REFACTOR
+<img width="853" height="522" alt="image" src="https://github.com/user-attachments/assets/f5edb181-48cd-4f24-b6b6-bc9636bf5ac8" />
