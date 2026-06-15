@@ -1,59 +1,55 @@
-// Lógica para el motor de Búsqueda y Filtros
+// Constante declarativa reutilizable para sanitización XSS
+const REGEX_XSS = /<[^>]*>/g;
+
+/**
+ * Motor de Búsqueda y Filtros con sanitización integrada
+ */
 function buscarProducto(termino, catalogo) {
-    if (!termino || termino.trim() === '') {
+    if (!termino || !termino.trim()) {
         return { procesado: false, redireccionar: false, productos: [] };
     }
- 
-    // Sanitización básica para prevenir XSS e inyecciones
-    const terminoSanitizado = termino.replace(/<[^>]*>/g, "").trim();
- 
-    // Si tras sanitizar queda vacío (era puro script/XSS)
-    if (terminoSanitizado === '') {
-        return {
-            htmlSanitizado: terminoSanitizado, // string vacío, sin <script>
-            productos: [],
-            estadoVacio: true
-        };
+
+    const terminoSanitizado = termino.replace(REGEX_XSS, "").trim();
+
+    if (!terminoSanitizado) {
+        return { htmlSanitizado: "", productos: [], estadoVacio: true };
     }
- 
-    const productosFiltrados = catalogo.filter(p =>
-        p.nombre.toLowerCase().includes(terminoSanitizado.toLowerCase())
+
+    const productosFiltrados = catalogo.filter(({ nombre }) =>
+        nombre.toLowerCase().includes(terminoSanitizado.toLowerCase())
     );
- 
+
     if (productosFiltrados.length === 0) {
         return {
-            htmlSanitizado: terminoSanitizado, // ← agregado aquí también
+            htmlSanitizado: terminoSanitizado,
             productos: [],
             paginaSinResultados: true,
             estadoVacio: true,
             sugerencias: ['Tecnología', 'Moda Hombre', 'Calzado Deportivo']
         };
     }
- 
+
     return {
-        htmlSanitizado: terminoSanitizado,     // ← y aquí
+        htmlSanitizado: terminoSanitizado,
         productos: productosFiltrados,
         totalResultados: productosFiltrados.length,
         procesado: true
     };
 }
- 
+/**
+ * Gestiona de forma segura los parámetros económicos desde la URL de Falabella
+ */
 function gestionarFiltroURL(urlStr) {
     try {
-        const url = new URL(urlStr);
-        let min = parseInt(url.searchParams.get('minPrecio'));
-        let max = parseInt(url.searchParams.get('maxPrecio'));
- 
-        // Si los valores no son numéricos o están corruptos, se asigna el fallback por defecto
-        if (isNaN(min)) min = 0;
-        if (isNaN(max)) max = 1000;
- 
-        return { minPrecio: min, maxPrecio: max, errorServidor: false };
-    } catch (e) {
+        const { searchParams } = new URL(urlStr);
+        
+        // Conversión segura de tipos; si falla la conversión o es NaN, recurre al valor por defecto
+        const minPrecio = parseInt(searchParams.get('minPrecio'), 10) || 0;
+        const maxPrecio = parseInt(searchParams.get('maxPrecio'), 10) || 1000;
+
+        return { minPrecio, maxPrecio, errorServidor: false };
+    } catch {
         return { minPrecio: 0, maxPrecio: 1000, errorServidor: true };
     }
 }
- 
-
-module.exports = { buscarProducto, gestionarFiltroURL };  
- 
+module.exports = { buscarProducto, gestionarFiltroURL };
