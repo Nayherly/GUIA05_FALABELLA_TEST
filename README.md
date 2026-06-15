@@ -18,7 +18,10 @@ Estudiantes:
   
 URL Informe: https://docs.google.com/document/d/1YagJNK70kby4h4L07JTCtNyY2aBHeJ5ZaewM-9tOMao/edit?tab=t.0
 ## ESTRUCTURA DE TRAZABILIDAD
+
 ![alt text](image-2.png)
+
+
 ## PRUEBAS UNITARIAS AUTOMATIZADAS 
 #FASE RED 
 Siguiend la metodología TDD, primero se define  los archivos de pruebas tests/busqueda.test.js. y tests/carrito.test.js. y Al ejecutarse inicialmente con npm test o npx jest, estos archivos fallarán (RED) debido a la ausencia de lógica implementada.
@@ -27,8 +30,10 @@ Siguiend la metodología TDD, primero se define  los archivos de pruebas tests/b
 
 #FASE GREEN
 Para resolver las aserciones anteriores y lograr el estado GREEN (todas las pruebas pasan), se desarrolla la lógica de negocio modular en la carpeta src/.
+
 ![alt text](image-3.png)
 
 
 #FASE REFACTOR
+
 <img width="853" height="522" alt="image" src="https://github.com/user-attachments/assets/f5edb181-48cd-4f24-b6b6-bc9636bf5ac8" />
