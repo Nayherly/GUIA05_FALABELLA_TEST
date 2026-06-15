@@ -54,5 +54,6 @@ function gestionarFiltroURL(urlStr) {
     }
 }
  
-module.exports = { buscarProducto, gestionarFiltroURL };
+
+module.exports = { buscarProducto, gestionarFiltroURL };  
  
