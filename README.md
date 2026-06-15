@@ -1,6 +1,8 @@
 # GUIA05_FALABELLA_TEST
 UNIVERSIDAD NACIONAL DE SAN CRISTÓBAL DE HUAMANGA
+
 FACULTAD DE INGENIERÍA DE MINAS, GEOLOGÍA Y CIVIL
+
 ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS
 
 ![alt text](image.png)
@@ -13,6 +15,7 @@ Docente : Ing. LIZBETH JAICO QUISPE
 Estudiantes:
 - QUISPE CCAHUANA, María Leonela
 - VILA CAYO, Nayherly Dianeth
+  
 URL Informe: https://docs.google.com/document/d/1YagJNK70kby4h4L07JTCtNyY2aBHeJ5ZaewM-9tOMao/edit?tab=t.0
 ## ESTRUCTURA DE TRAZABILIDAD
 ![alt text](image-2.png)
