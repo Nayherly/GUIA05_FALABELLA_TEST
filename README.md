@@ -17,6 +17,8 @@ Estudiantes:
 - VILA CAYO, Nayherly Dianeth
   
 URL Informe: https://docs.google.com/document/d/1YagJNK70kby4h4L07JTCtNyY2aBHeJ5ZaewM-9tOMao/edit?tab=t.0
+JIRA: https://unsch-team-maria.atlassian.net/jira/plans/1/scenarios/1/timeline?vid=4&isPlanShare=true&atlOrigin=eyJpIjoiMjkxMDVjMWQ0NWNiNGY1N2I5YmU4ZDNhY2MzM2QxZWIiLCJwIjoiaiJ9&authuser=0
+
 ## ESTRUCTURA DE TRAZABILIDAD
 
 ![alt text](image-2.png)
